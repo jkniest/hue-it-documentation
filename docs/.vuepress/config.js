@@ -8,7 +8,16 @@ module.exports = {
         ],
         sidebar: [
             '/',
-            '/getting-started/'
+            '/getting-started/',
+            {
+                title: 'Authentication',
+                path: '/authentication/local',
+                children: [
+                    '/authentication/local/',
+                    '/authentication/cloud/'
+                ],
+                collapsable: false
+            }
         ],
         lastUpdated: 'Last Updated',
         repo: 'jkniest/hue-it',
