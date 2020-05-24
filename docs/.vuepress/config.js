@@ -17,7 +17,9 @@ module.exports = {
                     '/authentication/cloud/'
                 ],
                 collapsable: false
-            }
+            },
+            '/lights/',
+            '/config/'
         ],
         lastUpdated: 'Last Updated',
         repo: 'jkniest/hue-it',
