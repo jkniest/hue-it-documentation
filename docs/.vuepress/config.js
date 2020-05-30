@@ -16,7 +16,7 @@ module.exports = {
                     '/authentication/local/',
                     '/authentication/cloud/'
                 ],
-                collapsable: false
+                collapsable: true
             },
             '/lights/',
             '/config/'
