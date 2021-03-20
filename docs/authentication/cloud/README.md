@@ -1,6 +1,6 @@
 # Cloud authentication
 
-Use can use the cloud authentication to control your lights from anywhere on the world. You don't need physical access
+Use can use cloud authentication to control your lights from anywhere in the world. You don't need physical access
 to the bridge for this part.
 
 We recommend that you'll read the basics of [OAuth2](https://oauth.net/2/), since it will not be covered in this chapter.
@@ -9,7 +9,7 @@ We recommend that you'll read the basics of [OAuth2](https://oauth.net/2/), sinc
 You'll need to create a [Phillips Hue Developer Account](https://developers.meethue.com/). This is a
 separate account from your regular Phillips Hue Account.
 
-Also, you need to create a Hue-App. After you've singed in, you can see all your apps or create
+Also, you need to create a Hue-App. After you've signed in, you can see all your apps or create
 new ones [here](https://developers.meethue.com/my-apps/):
 - App name can be chosen freely
 - Callback URL is the [OAuth2 callback url](https://oauth.net/2/grant-types/authorization-code/) where the user is redirected after authenticating
@@ -21,12 +21,11 @@ three parameters later on.
 ## Getting the user to authenticate
 The first step for your cloud control is to authenticate against your newly created app.
 The user must undergo the typical OAuth2 process. Meaning, they will be redirected to the Hue platform
-itself, where they need to sign in. Phillips Hue later redirects the user back to the specified callback url.
+itself, where they need to sign in. Phillips Hue later redirects the user back to the specified callback URL.
 
-In this redirect a new query parameter will be given, named `code`. This is a short-lived code that can be used
-to get the real access and refresh tokens.
+In this redirect, a new query parameter will be given, named `code`. This is a short-lived code that can be used to get access and refresh tokens.
 
-Also you may pass a "state". This is a freely choosable value which will be appended to the callback. This can be
+Also, you may pass a "state". This is a freely choosable value that will be appended to the callback. This can be
 used to identify the user or reauthenticate them.
 
 In the following example we'll generate the OAuth2 url and redirect the user:
@@ -51,19 +50,18 @@ $hue = new PhillipsHueCloud($client, $device, 'app-id');
 // You can pass any state value in there. (Probably a user token or something)
 $oAuthUrl = $hue->getOAuthUrl('state');
 
-// Finally we redirect the user. If you are working in a framework, like laravel or symfony
+// Finally, we redirect the user. If you are working in a framework, like Laravel or Symfony
 // please use their redirect mechanisms.
 header('Location: ' . $oAuthUrl);
 ```
 
 ## Request the access and refresh token
 
-After the user is redirected back to your specified callback url, a query parameter named `code` will
+After the user is redirected back to your specified callback URL, a query parameter named `code` will
 be transmitted. You can use this to get the access and refresh token. After authenticating you'll need to store these
 tokens somewhere for the next requests.
 
-Also we need to generate a username. In the context of phillips hue  the username is more like a API token. You can 
-generate one and reuse it later on. So after creating the username please store it somewhere.
+Also, we need to generate a username. In the context of Phillips Hue,  the username is more like an API token. You can generate one and reuse it later on. So after creating the username please store it somewhere.
 
 ```php
 use jkniest\HueIt\PhillipsHueCloud;
@@ -76,7 +74,7 @@ $device = new HueDevice('id', 'name');
 $hue = new PhillipsHueCloud($client, $device, 'app-id');
 
 // Here we fetch the code from the query parameters. If you are using a framework like
-// laravel or symfony, please use their input handling.
+// Laravel or Symfony, please use their input handling.
 $code = $_GET['code'];
 
 // Now with the code we can authenticate the user to get the tokens
@@ -92,8 +90,8 @@ $username = $hue->getUsername();
 ```
 
 ## Reuse your tokens and username
-After you got your tokens and username you probably want to reuse them. Otherwise, the user would need to undergo
-the cloud process each and every time.
+After you get your tokens and username you probably want to reuse them. Otherwise, the user would need to undergo
+the cloud process every time.
 
 Here is an example of how those values can be used:
 
@@ -119,11 +117,11 @@ $hue->getAllLights()->each->turnOn();
 ```
 
 ## Refresh your access token
-Access tokens are usally short-lived. They expire after some hours. So, you'll need to
+Access tokens are usually short-lived. They expire after some hours. So, you'll need to
 refresh them. The hue-it library makes it super easy. After you passed in your old
-access and refresh token, you'll just need to call a refresh method.
+access and refresh token, you'll need to call a refresh method.
 
-Afterwards you get new tokens. Don't forget to override your old tokens
+Afterward, you get new tokens. Don't forget to override your old tokens
 for later usage.
 
 ```php

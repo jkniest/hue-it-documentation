@@ -1,10 +1,9 @@
 # hue-it
 
-hue-it is a PHP wrapper for the offical Phillips Hue API. It supports both
-local and cloud connections. You can use it to control your lights, groups
-and general phillips hue configuration.
+hue-it is a PHP wrapper for the official Phillips Hue API. It supports both
+local and cloud connections. You can use it to control your lights, groups, and general Phillips Hue configuration.
 
-It's completely open source and MIT licensed.. so do what you want with it!
+It's completely open-source and MIT licensed.. so do what you want with it!
 
 ## Getting started
 
@@ -26,8 +25,8 @@ find the IP address in your router.
 
 Also, you need physical access to your bridge.
 
-Below is an example how we might connect to a bridge on the
-ip address `123.456.78.9`. After calling the `authenticate` method
+Below is an example of how we might connect to a bridge with the
+IP address `123.456.78.9`. After calling the `authenticate` method
 the application waits until you press the LINK button
 on your bridge.
 
@@ -49,7 +48,7 @@ Using the hue cloud is a little more complex than the local network.
 First, you'll need to [create a Phillips hue app](https://developers.meethue.com/my-apps/).
 
 After creating the app you'll have access to client credentials (id and secret)
-and an app ID. We need both to connect via cloud. The device id and name can be chosen
+and an app ID. We need both to connect via the cloud. The device id and name can be chosen
 as you like.
 
 We recommend that you'll read the basics of [OAuth2](https://oauth.net/2/)
@@ -75,10 +74,9 @@ $hue->getLight(3)->turnOn();
 ```
 
 ## Known limitations
-Currently you can only control your lights and groups. Other configurations, such as the
-startup configuration, bridge updates and so on are not support yet. Feel free to create an issue
-or pull request if you think something important is missing!
+Currently, you can only control your lights and groups. Other configurations, such as the startup configuration, bridge updates, and so on are not supported yet. Feel free to create an issue
+or pull-request if you think something important is missing!
 
 ### Other limitations
-- Groups don't support to set the color temperature in percentage. Because in theory every light could have different max and min color temperatures.
-- Currently, we only support setting / getting the colors via XY, Hex and RGB. You can not pass a hue value
+- Groups don't support setting the color temperature in percentage. Because in theory, every light could have different max and min color temperatures.
+- Currently, we only support setting / getting the colors via XY, Hex, and RGB. You can not pass a hue value

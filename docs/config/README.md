@@ -1,7 +1,7 @@
 # Bridge config
 
-You can access a variety of bridge config values. Currently all those values are
-readonly.
+You can access a variety of bridge config values. Currently, all those values are
+read-only.
 
 ## Get information
 
@@ -35,8 +35,8 @@ $rawData = $config->getRawData();
 
 ## Whitelist
 
-By default each authorized username / api token is stored in the whitelist of the
-bridge. You can access the whitelist and inspect each device which has access.
+By default, each authorized username / API token is stored in the whitelist of the
+bridge. You can access the whitelist and inspect each device that has access.
 
 ```php
 // This method returns a collection with all allowed devices.
@@ -48,7 +48,7 @@ foreach($whitelist as $device) {
 }
 ```
 
-### Available methods on whitelist
+### Available methods on the whitelist
 ```
 // Returns the name of the device
 $name = $device->getName();

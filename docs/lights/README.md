@@ -1,6 +1,6 @@
 # Controlling lights
 
-You can use the same API wheter you use the local or cloud driver.
+You can use the same API whether you use the local or cloud driver.
 
 ## Getting lights
 
@@ -63,7 +63,7 @@ $isOn = $light->isOn();
 
 ## Brightness
 By default, the brightness is between 0 and 254, where 0 is the darkest possible value
-and 254 the brightest. You can still use those values, but by default you can just
+and 254 the brightest. You can still use those values, but by default, you can just
 pass a percentage value (0-100) and hue-it automatically converts it for you!
 
 ```php
@@ -74,7 +74,7 @@ $light->setBrightness(50);
 $light->setBrightness(127, true);
 ```
 
-Obviously you can also get the brightness in percent or absolute:
+You can also get the brightness in percent or absolute:
 
 ```php
 // Get the brightness in percent (0% - 100%)
@@ -86,10 +86,10 @@ $absolute = $light->getBrightness(true);
 
 ## Color
 
-By default the Phillips Hue supports two color mods:
+By default the Phillips Hue supports two color-modes:
 [XY and Hue](https://developers.meethue.com/develop/application-design-guidance/color-conversion-formulas-rgb-to-xy-and-back/).
 
-hue-it provides wrappers to set / get the color in RGB or Hex-Code. Hue colors
+hue-it provides wrappers to set/get the color in RGB or Hex-Code. Hue colors
 are currently **not** supported by this library.
 
 ```php
@@ -104,7 +104,7 @@ $light->setColorAsXY(0.123, 0.456);
 ```
 
 You can also get the color in all these formats. It's irrelevant which format
-you used to set the colors. Also you can get the current color mode. Which is either `hs` (hue) or `xy`.
+you used to set the colors. Also, you can get the current color mode. Which is either `hs` (hue) or `xy`.
 
 ```php
 // This returns an array with the R, G and B values
@@ -127,7 +127,7 @@ $colorMode = $light->getColorMode();
 ## Color temperature (CT)
 
 By default, the color temperature is between 153 and 500, where 0 is the coldest possible value
-and 500 the warmest. You can still use those values, but by default you can just
+and 500 the warmest. You can still use those values, but by default, you can just
 pass a percentage value (0-100) and hue-it automatically converts it for you!
 
 ```php
@@ -138,7 +138,7 @@ $light->getColorTemperature(50);
 $light->setColorTemperature(220, true);
 ```
 
-Obviously you can also get the color temperature in percent or absolute:
+You can also get the color temperature in percent or absolute:
 
 ```php
 // Get the color temperature in percent (0% - 100%)
@@ -151,7 +151,7 @@ $absolute = $light->getColorTemperature(true);
 ## Saturation
 
 By default, the saturation is between 0 and 254, where 0 is the most unsaturated value
-and 254 the most. You can still use those values, but by default you can just
+and 254 the most. You can still use those values, but by default, you can just
 pass a percentage value (0-100) and hue-it automatically converts it for you!
 
 ```php
@@ -162,7 +162,7 @@ $light->setSaturation(50);
 $light->setSaturation(127, true);
 ```
 
-Obviously you can also get the saturation in percent or absolute:
+You can also get the saturation in percent or absolute:
 
 ```php
 // Get the saturation in percent (0% - 100%)
@@ -175,7 +175,7 @@ $absolute = $light->getSaturation(true);
 ## Effects and alerts
 
 Phillips Hue supports both effects and alerts. You can use effects to start a `colorloop` which will iterate
-through each colors from time to time. Effects can be used to let your lights blink.
+through each color from time to time. Effects can be used to let your lights blink.
 
 ```php
 // Set the effect. You can use "none" or "colorloop"
@@ -201,7 +201,7 @@ $alert = $light->getAlert();
 
 ## Get Information
 
-Other than controling your lights you can also get some basic information about them.
+Other than controlling your lights you can also get some basic information about them.
 
 ```php
 // You can get the name of the light
@@ -216,16 +216,16 @@ $rechable = $light->isReachable();
 ```
 
 ## Caching
-After fetching the lights we don't automatically update their values. Normally in PHP this is not
-a big problem, since every request refetches the lights. But if you need to grab the new data directly
+After fetching the lights we don't automatically update their values. Normally in PHP, this is not
+a big problem, since every request re-fetches the lights. But if you need to grab the new data directly
 or you are running a long-running-process you can use the `refresh` method:
 
 ```php
 $light->refresh();
 ```
 
-This will update all values on the light object. Otherwise you can just refetch the light from
-your hue instance. If you call `getLight` or `getAllLights` a second time, each light will be fetched again:
+This will update all values on the light object. Otherwise, you can just fetch the light from
+your hue instance again. If you call `getLight` or `getAllLights` a second time, each light will be fetched again:
 
 ```php
 $light = $hue->getLight(3);

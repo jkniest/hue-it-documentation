@@ -1,10 +1,10 @@
 # Controlling groups
 
-You can use the same API wheter you use the local or cloud driver.
+You can use the same API whether you use the local or cloud driver.
 
 ## Types of groups
-Groups have different types. The most used are `Room` and `Zone`. Technically
-there is not difference between a regular group and a room, so you can use the same API 
+Groups have different types. The most used are Room and Zone. Technically
+there is no difference between a regular group and a room, so you can use the same API
 for both. Further down we'll show an example of how to fetch only rooms.
 
 ## Getting groups
@@ -45,7 +45,7 @@ $group->turnOn();
 
 ## Getting lights in group
 hue-it provides two methods to access all lights within a group. You can either
-only fetch all IDs or a collection of a lights.
+only fetch all IDs or a collection of all lights.
 
 ```php
 // This returns a collection of all IDs
@@ -87,7 +87,7 @@ $anyOn = $group->isAnyOn();
 
 ## Brightness
 By default, the brightness is between 0 and 254, where 0 is the darkest possible value
-and 254 the brightest. You can still use those values, but by default you can just
+and 254 the brightest. You can still use those values but by default, you can just
 pass a percentage value (0-100) and hue-it automatically converts it for you!
 
 ```php
@@ -109,7 +109,7 @@ $percent = $group->getBrightness();
 $absolute = $group->getBrightness(true);
 ```
 
-If you want to have the brightness levels of **each** light in the group, you can use the colleciton methods:
+If you want to have the brightness levels of **each** light in the group, you can use the collection methods:
 
 ```php
 // This returns a collection with all the brightness values of each light.
@@ -126,10 +126,10 @@ foreach($group->getLights() as $light) {
 
 ## Color
 
-By default the Phillips Hue supports two color mods:
+By default the Phillips Hue supports two color-modes:
 [XY and Hue](https://developers.meethue.com/develop/application-design-guidance/color-conversion-formulas-rgb-to-xy-and-back/).
 
-hue-it provides wrappers to set / get the color in RGB or Hex-Code. Hue colors
+hue-it provides wrappers to set/get the color in RGB or Hex-Code. Hue colors
 are currently **not** supported by this library.
 
 ```php
@@ -189,7 +189,7 @@ $colorTemperature = $group->getColorTemperature();
 ## Saturation
 
 By default, the saturation is between 0 and 254, where 0 is the most unsaturated value
-and 254 the most. You can still use those values, but by default you can just
+and 254 the most. You can still use those values but by default, you can just
 pass a percentage value (0-100) and hue-it automatically converts it for you!
 
 ```php
@@ -200,7 +200,7 @@ $group->setSaturation(50);
 $group->setSaturation(127, true);
 ```
 
-Obviously you can also get the saturation in percent or absolute. If the saturation levels are different across all
+You can also get the saturation in percent or absolute. If the saturation levels are different across all
 lights in your group this value will be the same as the last added light.
 
 ```php
@@ -214,7 +214,7 @@ $absolute = $group->getSaturation(true);
 ## Effects and alerts
 
 Phillips Hue supports both effects and alerts. You can use effects to start a `colorloop` which will iterate
-through each colors from time to time. Effects can be used to let your lights blink.
+through each color from time to time. Effects can be used to let your lights blink.
 
 ```php
 // Set the effect for the whole group. You can use "none" or "colorloop"
@@ -258,8 +258,8 @@ $class = $group->getClass();
 ```
 
 ## Caching
-After fetching the groups we don't automatically update their values. Normally in PHP this is not
-a big problem, since every request refetches the groups. But if you need to grab the new data directly
+After fetching the groups we don't automatically update their values. Normally in PHP, this is not
+a big problem, since every request re-fetches the groups. But if you need to grab the new data directly
 or you are running a long-running-process you can use the `refresh` method:
 
 ```php
@@ -280,7 +280,7 @@ $group->refresh();
 $group = $hue->getGroup(3);
 ```
 
-If you want to refresh all groups at once, it is more efficient to just regrab all groups again.
+If you want to refresh all groups at once, it is more efficient to just grab all groups again.
 ```php
 $groups = $hue->getAllGroups();
 
