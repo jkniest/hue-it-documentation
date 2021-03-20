@@ -4,11 +4,10 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Getting started', link: '/getting-started/' }
+            { text: 'Getting started', link: '/#getting-started' }
         ],
         sidebar: [
             '/',
-            '/getting-started/',
             {
                 title: 'Authentication',
                 path: '/authentication/local',
@@ -19,6 +18,7 @@ module.exports = {
                 collapsable: true
             },
             '/lights/',
+            '/groups/',
             '/config/'
         ],
         lastUpdated: 'Last Updated',
