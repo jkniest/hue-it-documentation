@@ -34,7 +34,7 @@ on your bridge.
 use jkniest\HueIt\PhillipsHue;
 
 $hue = new PhillipsHue('123.456.78.9');
-$hue->authenticate(); // Press LINK button
+$hue->authenticate('device-name'); // Press LINK button
 
 $hue->getLight(3)->turnOn();
 ```
@@ -65,7 +65,7 @@ $client = new HueClient('id', 'secret');
 $device = new HueDevice('id', 'name');
 
 $hue = new PhillipsHueCloud($client, $device, 'app-id');
-$hue->getOAuthUrl(); // The user must open this url in the browser.
+$hue->getOAuthUrl('state'); // The user must open this url in the browser.
 
 // Here you can use the code which came back from the OAuth process.
 $hue->authenticate('code');
