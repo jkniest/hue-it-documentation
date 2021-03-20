@@ -93,10 +93,10 @@ hue-it provides wrappers to set / get the color in RGB or Hex-Code. Hue colors
 are currently **not** supported by this library.
 
 ```php
-// Here we set all lights to red (R=255, G=0, B=0)
+// Here we set the light to red (R=255, G=0, B=0)
 $light->setColorAsRGB(255, 0, 0);
 
-// Here we set all lights to green (#00ff00)
+// Here we set the light to green (#00ff00)
 $light->setColorAsHex('#00ff00');
 
 // And finally we can still use the original XY values:
