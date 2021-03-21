@@ -15,7 +15,7 @@ or using the cloud.
 Simply install this package via composer, and you're ready to go:
 
 ```shell script
-composer install jkniest/hue-it
+composer require jkniest/hue-it
 ```
 
 ### Usage (Local bridge)
@@ -26,9 +26,8 @@ find the IP address in your router.
 Also, you need physical access to your bridge.
 
 Below is an example of how we might connect to a bridge with the
-IP address `123.456.78.9`. After calling the `authenticate` method
-the application waits until you press the LINK button
-on your bridge.
+IP address `123.456.78.9`. Before calling the `authenticate` method
+to get a username, you'll need to press the LINK button your hue bridge.
 
 ```php
 use jkniest\HueIt\PhillipsHue;

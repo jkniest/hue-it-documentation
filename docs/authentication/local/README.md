@@ -19,7 +19,8 @@ $hue = new PhillipsHue('123.456.78.9');
 
 // For your first authentication you can now call the `authenticate` method.
 // You need to pass in a device name. This can be chosen freely.
-// This method will wait until you press the "LINK" button on your physical bridge. 
+// You'll need to press the LINK button on your bridge before calling the
+// authenticate method. 
 $username = $hue->authenticate('device name');
 
 // You can now store the username somewhere to reuse it later on.
